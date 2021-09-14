@@ -1,11 +1,11 @@
 package com.piko;
 
-public class App extends SimpleApplication{
+public class App extends SimpleApplication {
     public static void main(String[] args) {
         App app = new App();
         
     }
-
+    
     @Override
     public void init() {
         // TODO Auto-generated method stub
@@ -13,7 +13,7 @@ public class App extends SimpleApplication{
     }
 
     @Override
-    public void update() {
+    public void update(float delta) {
         // TODO Auto-generated method stub
         
     }

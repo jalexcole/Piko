@@ -1,9 +1,12 @@
 package com.piko.engine;
 
 import com.piko.SimpleApplication;
+import com.piko.util.Color;
 
-public abstract class AbstractEngine implements Runnable{
-    SimpleApplication simpleApplication; 
+public abstract class AbstractEngine implements Runnable, Engine{
+    
+    protected Color backGroundColor = Color.BLACK;
+    protected SimpleApplication simpleApplication; 
 
     protected AbstractEngine(SimpleApplication simpleApplication) {
         this.simpleApplication = simpleApplication;
@@ -14,11 +17,7 @@ public abstract class AbstractEngine implements Runnable{
     protected abstract void getWindowWidth();
     protected abstract void getWindowHeight();
 
-    public abstract void start();
-    public abstract void stop();
     
     public abstract void onEvent();
 
-    public abstract void update();
-    public abstract void render();
 }
