@@ -10,12 +10,17 @@ public class SwingEngine extends AbstractEngine {
     private boolean running = true;
     private JFrame frame;
     private Canvas canvas;
-    private String title = "piko";
-
+    private String title = "piko-8";
+	
     Thread thread;
     public SwingEngine(SimpleApplication simpleApplication) {
         super(simpleApplication);
         frame = new JFrame();
+		frame.setDefaultCloseOperation(0);
+
+
+		thread = new Thread(this, title);
+		run();
     }
 
 @Override
@@ -101,7 +106,7 @@ public void update() {
 
 @Override
 public void render() {
-    // TODO Auto-generated method stub
+    simpleApplication.draw();
     
 }
 
