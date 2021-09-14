@@ -27,4 +27,8 @@ public class RenderQueue {
     public static void clearRenderQueue() {
 
     }
+
+    public void add(Renderable renderable) {
+        queue.add(renderable);
+    }
 }
