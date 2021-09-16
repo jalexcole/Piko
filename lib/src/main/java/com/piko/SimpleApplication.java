@@ -1,16 +1,17 @@
 package com.piko;
 
-import java.util.Queue;
-import java.util.concurrent.LinkedBlockingQueue;
-
 import com.piko.engine.*;
 import com.piko.engine.SwingEngine;
+import com.piko.pipeline.RenderQueue;
 import com.piko.util.*;
+import com.piko.util.Rectangle;
 public abstract class SimpleApplication {
 
     private Engine engine = new SwingEngine(this);
-    private Queue renderQueue = new LinkedBlockingQueue<Rectangle>();
-    public SimpleApplication() {
+    
+    private RenderQueue renderQueue = RenderQueue.getInstance();
+
+    protected SimpleApplication() {
 
     }
 
@@ -19,16 +20,25 @@ public abstract class SimpleApplication {
     public abstract void draw();
     
 
-    protected void setEngine(Engine engine) {
+    protected final void setEngine(Engine engine) {
         this.engine = engine;
     }
 
-    public void rect(int x0, int y0, int x1, int y1, Color color) {
-        
+    public final void setBackgroundColor(Color color) {
+        engine.setBackgroundColor(color);
+    }
+
+    public final void rect(int x0, int y0, int x1, int y1, Color color) {
+        renderQueue.add(new Rectangle(x0, y0, x1, y1, color));
+        engine.drawRect(new Rectangle(x0, y0, x1, y1, color));
+    }
+
+    public final void rect(Rectangle rectangle) {
+        renderQueue.add(rectangle);
     }
 
     public final void clearRenderQueue() {
-        renderQueue = new LinkedBlockingQueue<Rectangle>();
+        renderQueue.clear();
     }
 
     public void map(int x, int y) {

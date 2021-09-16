@@ -2,26 +2,32 @@ package com.piko.engine;
 
 import java.awt.AWTEvent;
 import java.awt.Canvas;
-import java.awt.Graphics2D;
+import java.awt.Graphics;
 import javax.swing.JFrame;
 
 import com.piko.util.Color;
+import com.piko.util.Rectangle;
 import com.piko.SimpleApplication;
+import com.piko.pipeline.RenderQueue;
 
 public class SwingEngine extends AbstractEngine {
     private boolean running = true;
     private JFrame frame;
     private Canvas canvas;
     private String title = "piko-8";
-	private Graphics2D graphics;
+	private Graphics graphics;
 	private int screenWidth = 160;
 	private int screenHeight = 144;
-
+	
 	private int scale = 3;
 
-	private int[] pixels;
+	private int[] pixels = new int[screenHeight * screenWidth];
 
-    Thread thread;
+
+	private Color backgroundColor = Color.BLACK;
+    private Thread thread;
+	private RenderQueue renderQueue = RenderQueue.getInstance();
+
     public SwingEngine(SimpleApplication simpleApplication) {
         super(simpleApplication);
         frame = new JFrame();
@@ -32,10 +38,11 @@ public class SwingEngine extends AbstractEngine {
 		frame.setResizable(false);
 		canvas.setSize(screenWidth * scale, screenHeight * scale);
 		thread = new Thread(this, title);
-
+		graphics = canvas.getGraphics();
+		// canvas.paint(graphics);
 		frame.pack();
 		frame.setVisible(true);
-		run();
+		thread.start();
     }
 
 	@Override
@@ -121,7 +128,8 @@ public void update(float delta) {
 
 @Override
 public void render() {
-	canvas.setBackground(backGroundColor);
+	// canvas.
+	canvas.setBackground(this.backGroundColor);
     simpleApplication.draw();
     
 }
@@ -134,7 +142,17 @@ public void onEvent(AWTEvent event) {
 
 @Override
 public void setBackgroundColor(Color color) {
+	graphics.setColor(color);
+	this.backGroundColor = color;
+}
+
+@Override
+public void drawRect(Rectangle rectangle) {
 	// TODO Auto-generated method stub
+	// graphics.drawRect(rectangle.x,
+	// 				  rectangle.y, 
+	// 				  rectangle.width, 
+	// 				  rectangle.height);
 	
 }
 

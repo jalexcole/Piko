@@ -1,5 +1,7 @@
 package com.piko.util;
 
+import java.awt.Graphics;
+
 import com.piko.pipeline.Renderable;
 
 public class Color extends java.awt.Color implements Renderable {
@@ -15,12 +17,15 @@ public class Color extends java.awt.Color implements Renderable {
     public static Color ORANGE = new Color(255, 163, 0);
     public static Color YELLOW = new Color(255, 236, 39);
 
+    public static final Color BLUE = new Color(21, 173, 255);
     public Color(int r, int g, int b) {
         super(r, g, b);
     }
 
+    
+
     @Override
-    public void draw() {
+    public void draw(Graphics Graphics) {
         // TODO Auto-generated method stub
         
     }

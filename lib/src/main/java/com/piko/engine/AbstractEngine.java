@@ -3,7 +3,7 @@ package com.piko.engine;
 import com.piko.SimpleApplication;
 import com.piko.util.Color;
 
-public abstract class AbstractEngine implements Runnable, Engine{
+public abstract class AbstractEngine implements Engine{
     
     protected Color backGroundColor = Color.BLACK;
     protected SimpleApplication simpleApplication; 

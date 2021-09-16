@@ -3,6 +3,7 @@ package com.piko.engine;
 import java.awt.AWTEvent;
 
 import com.piko.util.Color;
+import com.piko.util.Rectangle;
 
 public interface Engine extends Runnable {
     
@@ -15,4 +16,5 @@ public interface Engine extends Runnable {
     public abstract void render();
 
     public abstract void setBackgroundColor(Color color);
+    public abstract void drawRect(Rectangle rectangle);
 }
