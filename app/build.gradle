@@ -18,6 +18,9 @@ repositories {
 
 dependencies {
     implementation project(':lib')
+    implementation project(':pikogl')
+    // implementation project(':rpiko')
+    
     // Use JUnit Jupiter for testing.
     testImplementation 'org.junit.jupiter:junit-jupiter:5.7.2'
 
