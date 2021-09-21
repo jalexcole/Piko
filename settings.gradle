@@ -8,4 +8,4 @@
  */
 
 rootProject.name = 'Piko'
-include('lib', 'app')
+include('lib', 'app', 'rpiko', 'pikogl', 'piko')

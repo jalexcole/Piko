@@ -29,8 +29,7 @@ public abstract class SimpleApplication {
     }
 
     public final void rect(int x0, int y0, int x1, int y1, Color color) {
-        renderQueue.add(new Rectangle(x0, y0, x1, y1, color));
-        engine.drawRect(new Rectangle(x0, y0, x1, y1, color));
+        
     }
 
     public final void rect(Rectangle rectangle) {

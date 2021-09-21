@@ -1,18 +1,26 @@
 package com.piko.util;
 
 public class Vector2 {
-    public Number x;
-    public Number y;
+    public float x = 0f;
+    public float y = 0f;
 
     public Vector2() {
-        x = 0;
-        y = 0;
+
     }
 
-    public Vector2(int x, int y) {
+    public Vector2(float x, float y) {
         this.x = x;
         this.y = y;
     }
 
+    public void add(Vector2 vector2) {
+        this.x += vector2.x;
+        this.y += vector2.y;
+    }
+
+    public void multiply(float constant) {
+        this.x *= constant;
+        this.y *= constant;
+    }
 
 }
