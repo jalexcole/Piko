@@ -23,4 +23,10 @@ public class Vector2 {
         this.y *= constant;
     }
 
+    public void normal() {
+        float length = (float) Math.sqrt(x * x + y * y);
+        x = x / length;
+        y = y / length;
+    }
+
 }
