@@ -18,8 +18,8 @@ repositories {
 
 dependencies {
     implementation project(':lib')
-    implementation project(':pikogl')
-    implementation project(':pikoliti')
+    // implementation project(':pikogl')
+    
     // implementation project(':rpiko')
     
     // Use JUnit Jupiter for testing.
